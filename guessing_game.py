@@ -40,19 +40,20 @@ def start_game():
     playing = True
     while playing:
       user_guess = input("Please choose between 1 and 10: ")
-      user_guess = int(user_guess)
-      if user_guess < 1 or user_guess > 10:
-        print("Your number is out of scope. Please choose between 1 and 10.")
-      elif user_guess > number_to_guess:
-        print("It is higher!")
-        guess_count += 1
-      elif user_guess < number_to_guess:
-        print("It is lower!")
-        guess_count += 1
-      elif user_guess == number_to_guess:
-        print(f"You got it! It took you {guess_count} tries.")
-      # continue_game = input("Would you like to play again? Y/N ")
-      # continue_game = continue_game.lower()
-      # if continue_game == "yes" or continue_game == "y":
+      try:
+        user_guess = int(user_guess)
+      except ValueError:
+        print("Invalid input. Please type a number...")
+      else:
+        if user_guess < 1 or user_guess > 10:
+          print("Your number is out of scope. Please choose between 1 and 10.")
+        elif user_guess > number_to_guess:
+          print("It is higher!")
+          guess_count += 1
+        elif user_guess < number_to_guess:
+          print("It is lower!")
+          guess_count += 1
+        elif user_guess == number_to_guess:
+          print(f"You got it! It took you {guess_count} tries.")
 # Kick off the program by calling the start_game function.
 start_game()
