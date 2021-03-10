@@ -4,9 +4,7 @@ Project 1 - Number Guessing Game
 --------------------------------
 
 """
-
 import random
-
 
 def start_game():
     """Psuedo-code Hints
